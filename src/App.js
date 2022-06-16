@@ -6,7 +6,8 @@ import Welcome from './components/Welcome';
 import Comment from './components/Comment';
 import Avatar from './components/Avatar';
 import Car from './components/Car';
-import Menu from './components/MenuComponent.Js';
+import Menu from './components/MenuComponent.js';
+import {DISHES} from './shared/dishes';
 
 const comment = {
   date : new Date(),
@@ -17,6 +18,12 @@ const comment = {
   }
 }
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      dishes: DISHES
+    };
+  }
   render(){
     return (
       <div className="App">
@@ -33,6 +40,7 @@ class App extends React.Component {
         <Comment date={comment.date} text={comment.text} author={comment.author} />
       
         <Car />
+        <Menu dishes={this.state.dishes} />
       </div>
     );
   }
