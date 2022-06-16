@@ -1,25 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import {Navbar, NavbarBrand} from 'reactstrap';
+import Welcome from './components/Welcome';
+import Comment from './components/Comment';
+import Avatar from './components/Avatar';
+import Car from './components/Car';
+import Menu from './components/MenuComponent.Js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const comment = {
+  date : new Date(),
+  text:'T hope you enjoy my restaurant ',
+  author:{
+    name : 'alberto',
+    avatarUrl: './images/alberto.png'
+  }
+}
+class App extends React.Component {
+  render(){
+    return (
+      <div className="App">
+        <Navbar dark color='primary'>
+          <div className='container'>
+            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
+          </div>
+        </Navbar>
+
+        <Welcome name="Thien"/>
+        <Welcome name="Thuy Van "/>
+        <Welcome name="Thuy Kieu"/>
+
+        <Comment date={comment.date} text={comment.text} author={comment.author} />
+      
+        <Car />
+      </div>
+    );
+  }
+  
 }
 
 export default App;
